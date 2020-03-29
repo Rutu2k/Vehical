@@ -1,0 +1,39 @@
+<html>
+<head>
+<script language="Javascript" type="text/javascript">
+function populate(s1,s2)
+{
+	var s1=document.getElementById(s1);
+	var s2=document.getElementById(s2);
+	s2.innerHTML="";
+	if(s1.value=="South")
+	{
+		var optionArray=["|","zone-1|Zone-1","zone-2|Zone-2"];
+	}
+	else if(s2.value=="North")
+	{
+		var optionArray=["|","zone-3|Zone-3","zone-4|Zone-4"];
+	}
+	for(var option in optionArray)
+	{
+		var pair=optionArray[option].split("|");
+		var newOption=document.createElement("option");
+		newOption.value=pair[0];
+		newOption.innerHTML=pair[1];
+		s2.options.add(newOption);
+	}
+}
+</script>
+</head>
+<body>
+<h2>Region</h2>
+	<select name="Region" id="Region" onChange="populate(this.id,'Zone')">
+				<option value=""></option>
+				<option value="South">South</option>
+				<option value="North">North</option>
+	</select>
+<h2>Zone</h2>
+	<select name="Zone" id="Zone">
+	</select>
+</body>
+</html>
